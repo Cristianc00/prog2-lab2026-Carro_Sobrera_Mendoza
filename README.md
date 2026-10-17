@@ -91,7 +91,8 @@ implementada por nuestro equipo.
 
 ### Requisitos
 
-- JDK 17 o superior, con los comandos `java` y `javac` disponibles.
+- JDK 25 LTS o superior, con `JAVA_HOME` apuntando al JDK y su carpeta `bin`
+  en el `PATH`, para disponer de los comandos `java` y `javac`.
 - Windows, macOS o Linux con un entorno gráfico para mostrar Swing.
 - Git, si se descarga el proyecto mediante clonación.
 - Conexión a Internet en la primera ejecución para descargar Maven y las
@@ -100,6 +101,12 @@ implementada por nuestro equipo.
 
 No es necesario instalar Maven ni agregarlo al `PATH`: el repositorio incluye
 Maven Wrapper, que descarga y utiliza Maven 3.9.11 automáticamente.
+La compilación genera clases para Java 25; no se pueden ejecutar con Java 17
+ni Java 21. Maven Wrapper utiliza el JDK indicado por `JAVA_HOME`.
+
+Después de instalar o cambiar el JDK, reiniciar la terminal y VS Code.
+Comprobar que `java -version`, `javac -version` y `.\mvnw.cmd -version`
+(Windows) o `sh mvnw -version` (macOS y Linux) indiquen Java 25 o superior.
 
 ### Descargar el proyecto
 
@@ -155,6 +162,11 @@ Abrir la carpeta raíz con Extension Pack for Java instalado e importar el
 proyecto Maven. También se puede ejecutar el método `main` de
 [Aplicacion](src/main/java/app/Aplicacion.java), con la raíz del proyecto como
 directorio de trabajo.
+En `Java: Configure Java Runtime`, seleccionar un JDK 25 para este proyecto.
+La configuración local de VS Code selecciona el JDK 25 instalado en
+`%USERPROFILE%\.jdks\jdk-25.0.4.1+1` para las terminales de Windows y el
+proyecto Java, sin modificar el `PATH` del sistema. Si se utiliza otra
+instalación, ajustar las rutas en `.vscode/settings.json`.
 
 La biblioteca de persistencia es Gson 2.13.2. Está declarada, junto con los
 complementos de compilación y ejecución, en [pom.xml](pom.xml).
@@ -180,6 +192,15 @@ guarda.**
 La base fue verificada en Windows con OpenJDK 17.0.17 y Maven 3.9.11.
 Es compatible por diseño con macOS y Linux, pero su ejecución en esos sistemas
 todavía no fue comprobada.
+
+Tras actualizar a Java 25 LTS, se verificó en Windows con Eclipse Temurin
+25.0.4.1 y Maven 3.9.11 la compilación limpia mediante `.\mvnw.cmd clean verify`.
+También se comprobaron la carga de los tres registros de ejemplo, la lectura
+sin archivo, la escritura y lectura JSON con tildes, la copia del listado,
+el rechazo de JSON inválido y el bloqueo del guardado tras una carga fallida.
+No hay pruebas automatizadas en el repositorio; estas comprobaciones se
+realizaron con un programa temporal. La interfaz gráfica no se volvió a
+verificar como parte de esta actualización.
 
 | Acción | Resultado esperado | Resultado obtenido en la base |
 | --- | --- | --- |
