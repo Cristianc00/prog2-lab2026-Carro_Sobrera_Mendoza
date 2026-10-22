@@ -1,4 +1,4 @@
-# [Pendiente: nombre del proyecto]
+# [Control de Stock]
 
 Trabajo de Programación 2 del CeRP del Suroeste, modalidad semipresencial.
 Docente: Domingo Pérez. Año: 2026.
