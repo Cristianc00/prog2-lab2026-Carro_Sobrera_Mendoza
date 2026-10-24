@@ -5,9 +5,9 @@ Docente: Domingo Pérez. Año: 2026.
 
 ## Integrantes
 
-- [Pendiente: nombre completo del primer integrante].
-- [Pendiente: nombre completo del segundo integrante].
-- [Solo si corresponde: nombre completo del tercer integrante].
+- Gerardo Sobrera.
+- Daniel German Mendoza Gonzalez.
+- Cristian Gabriel Carro Chauvie.
 
 ## Estado del proyecto
 
